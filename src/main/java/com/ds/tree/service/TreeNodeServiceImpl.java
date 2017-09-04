@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.ds.tree.service;
 
 import java.util.ArrayList;
@@ -14,6 +17,9 @@ import com.ds.tree.entity.TreeNode;
 import com.ds.tree.repository.TreeNodeRepository;
 import com.ds.tree.vo.TreeNodeVO;
 
+/**
+ * The Class TreeNodeServiceImpl.
+ */
 @Service
 public class TreeNodeServiceImpl implements TreeNodeService {
 
@@ -21,6 +27,9 @@ public class TreeNodeServiceImpl implements TreeNodeService {
 	@Autowired
 	private TreeNodeRepository treeNoderepository;
 
+	/* (non-Javadoc)
+	 * @see com.ds.tree.service.TreeNodeService#save(com.ds.tree.vo.TreeNodeVO)
+	 */
 	@Override
 	public TreeNode save(TreeNodeVO treeNodeVO) {
 		final TreeNode treeNode = new TreeNode();
@@ -28,6 +37,9 @@ public class TreeNodeServiceImpl implements TreeNodeService {
 		return treeNoderepository.save(treeNode);
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ds.tree.service.TreeNodeService#findAllNodes()
+	 */
 	@Override
 	public List<TreeNodeVO> findAllNodes() {
 		List<TreeNodeVO> treeNodeVOList = Collections.emptyList();
@@ -44,6 +56,9 @@ public class TreeNodeServiceImpl implements TreeNodeService {
 		return treeNodeVOList;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ds.tree.service.TreeNodeService#removeNode(java.lang.Integer)
+	 */
 	@Override
 	public void removeNode(final Integer id) {
 		final TreeNode nodeToBeRemoved = treeNoderepository.findOne(id);
@@ -65,6 +80,9 @@ public class TreeNodeServiceImpl implements TreeNodeService {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see com.ds.tree.service.TreeNodeService#removeAll()
+	 */
 	@Override
 	public void removeAll() {
 		treeNoderepository.deleteAll();

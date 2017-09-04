@@ -1,3 +1,10 @@
+/**
+ * Client specific JS to load, create and removed nodes from a Tree. It is some
+ * very simple UI validations as well. Further improvement related to better
+ * User experience can be added.
+ * 
+ * It call the REST services.
+ */
 var tree = new Tree('container');
 $(document).ready(function() {
 	$("#btnAdd").click(function() {
@@ -15,7 +22,7 @@ $(document).ready(function() {
 		}
 		tree.createNode(parentId, {
 			"text" : nodeText
-		}, function(node) {
+		}, function(node) { //Success callback
 			if (!tree.isEmpty()) {
 				$("#infoEmptyTree").hide();
 				$("#parentNodeId").prop('disabled', false);
@@ -30,7 +37,7 @@ $(document).ready(function() {
 				},
 				dataType : "json"
 			});
-		}, function() {
+		}, function() { //Failure callback
 			console.log('Fail')
 			$("#errParent").show();
 		});
@@ -44,7 +51,7 @@ $(document).ready(function() {
 		}
 		var parentId = $('#parentNodeId').val();
 		var nodeText = $('#nodeTextId').val();
-		tree.removeNode(parentId, function(node) {
+		tree.removeNode(parentId, function(node) {//Success callback
 			console.log("Node removal..");
 			var data = JSON.stringify(node);
 			$.ajax({
@@ -56,7 +63,7 @@ $(document).ready(function() {
 				},
 				dataType : "json"
 			});
-		},function(str) {
+		},function(str) {//Failure callback
 			console.log(str);
 		});
 	});
@@ -67,7 +74,7 @@ $(document).ready(function() {
 			console.log("Empty Tree.");
 			return;
 		}
-		tree.removeAll(function() {
+		tree.removeAll(function() {//Callback
 			console.log("Remove all Nodes.");
 			$.ajax({
 				type : "DELETE",
