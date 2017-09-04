@@ -18,7 +18,7 @@ This is a basic implementation of a Tree data structure in plain JavaScript usin
 - The project uses `Spring Boot` web for faster overall development.
 - Uses `Thymeleaf` for the view layer of MVC.
 - The REST APIs are exposed using `Spring REST`.
-- It uses an `embedded database H2` here so no over the top Database configuration is required. Just build and work done. You can check the SQL script under src/main/resources: **schema-h2.sql**.
+- It uses an `embedded database H2` here so no over the top Database configuration is required. Just build and work done. You can check the SQL script under [resources] (src/main/resources): **schema-h2.sql**.
 - The domain layer is using `Spring Data` for CRUD operations.
 - Necessary `Unit Test cases` are written for testing CRUD operations.
 - The data persistence can be checked by opening the URL in browser's incognito mode.
@@ -29,19 +29,22 @@ This is a basic implementation of a Tree data structure in plain JavaScript usin
 
 
 ## Installation
-- Clone or Download the TreeManager `$ git clone (https://github.com/dapinder-dhillon/TreeManager.git)`.
+- Clone or Download the TreeManager `$ git clone https://github.com/dapinder-dhillon/TreeManager.git`.
 - To Build executable Spring Boot Jar:
 ```bash
     $ mvn clean install
+```
+- To explicitly run Test Cases, execute: (though the tests will run during build too.)
+```bash
+    $ mvn test
 ```
 - This will build executable `TreeManager-0.1.0.jar` inside target directory.
 - Execute the JAR from command line:
 ```bash
     $ java -jar target\TreeManager-0.1.0.jar 
 ```
-- To explicitly run Test Cases, execute mvn test (though the tests will run during build too.)
 - Open browser and proceed to the URL: (http://localhost:8080/tree/home).
-- Initially the page will be loaded with an empty Tree. Go ahead, add nodes and verify.
+- Initially the page will be loaded with an empty Tree. Go ahead, add/remove nodes and verify.
 
 ## Further Improvement
 - All DOM manipulations locally at client side and submit once.
