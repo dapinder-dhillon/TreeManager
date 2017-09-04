@@ -16,6 +16,7 @@ This is a basic implementation of a Tree data structure in plain JavaScript usin
 
 ## Persisting Tree
 - The project uses `Spring Boot` web for faster overall development.
+- Uses `Thymeleaf` for the view layer of MVC.
 - The REST APIs are exposed using `Spring REST`.
 - It uses an `embedded database H2` here so no over the top Database configuration is required. Just build and work done. You can check the SQL script under src/main/resources: **schema-h2.sql**.
 - The domain layer is using `Spring Data` for CRUD operations.
